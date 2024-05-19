@@ -16,13 +16,13 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::middleware('auth:api')->group(function () {
+Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function(Request $request) {
         return $request->user();
     });
 });
 
-Route::group(['middleware' => ['auth:api']], function () {
+Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('profile', [ProfileController::class, 'show']);
     Route::post('logout', [AuthController::class, 'logout']);
 
